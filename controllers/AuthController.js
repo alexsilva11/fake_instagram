@@ -1,4 +1,4 @@
-const {Usuario} = require('../models')
+const {Usuario, Comentario, Post} = require('../models')
 
 const bcrypt = require("bcrypt")
 
@@ -12,9 +12,15 @@ const AuthController = {
         res.render('auth/register');
     },
 
-    showHome: (req,res) => {
-        console.log(req.session.usuario)
-        res.render('index');
+    showHome: async (req,res) => {
+        let posts = await Post.findAll({
+            include: [{
+                model: Comentario,
+                as: 'comentarios',
+                include: 'usuario'
+            }, 'usuario']
+        })
+        res.render('index', {posts});
     },
 
     login: async (req,res) => {
