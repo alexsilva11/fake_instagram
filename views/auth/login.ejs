@@ -11,6 +11,10 @@
             <img src="/img/banner-login.png" alt="" srcset="">
         </div>
         <div class="content">
+            <div><% if (locals.mensagem) { %>
+                <div style="color: #0095f6"><%= mensagem %></div>
+                <% } %>
+            </div>
             <form class="form-auth card" action="/login" method="POST">
             
                 <div id="logo">

@@ -11,6 +11,7 @@ router.get('/home', VerificaUsuarioLogado, AuthController.showHome);
 router.get('/login', AuthController.showLogin);
 router.post('/login', AuthController.login);
 router.post('/curtir', HomeController.curtir);
-router.post('/comentario', HomeController.comentar)
+router.post('/comentario', HomeController.comentar);
+router.post('/registro', AuthController.registrar)
 
 module.exports = router;

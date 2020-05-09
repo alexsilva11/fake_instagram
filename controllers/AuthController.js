@@ -46,6 +46,21 @@ const AuthController = {
         res.redirect('/home');
        
 
+    },
+
+    registrar: (req, res) => {
+        let {nome, email, senha} = req.body;
+
+        senha = bcrypt.hashSync(senha, 10);
+
+        Usuario.create({
+            nome,
+            email,
+            senha
+        })
+
+
+        res.render('auth/login', {mensagem: 'Cadastro efetuado com sucesso'})
     }
 
 
