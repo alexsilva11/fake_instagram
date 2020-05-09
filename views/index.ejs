@@ -45,7 +45,11 @@
         <div class="card-body">
           <div class="card-itens">
             <div class="likes">
-              <img src="/img/icons/heart.svg">
+              <form action="/curtir" method="POST">
+                <input class="id" name="post" value="<%=post.id%>">
+                <button name="<%=post.id%>" type="submit"><img src="/img/icons/heart.svg"></button>
+              </form>
+              
               <b><%= post.n_likes %> Likes</b>
             </div>
             <b>Postado no dia: 16/04/2020</b>
