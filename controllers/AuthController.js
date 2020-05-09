@@ -13,6 +13,9 @@ const AuthController = {
     },
 
     showHome: async (req,res) => {
+
+        let usuario = req.session.usuario
+        console.log(req.session.usuario)
         let posts = await Post.findAll({
             include: [{
                 model: Comentario,
@@ -20,7 +23,8 @@ const AuthController = {
                 include: 'usuario'
             }, 'usuario']
         })
-        res.render('index', {posts});
+
+        res.render('index', {posts, usuario});
     },
 
     login: async (req,res) => {

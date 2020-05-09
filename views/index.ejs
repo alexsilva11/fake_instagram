@@ -23,7 +23,7 @@
           <a href="">
             <div class="avatar-content">
               <img class="avatar" src="/img/avatar-example.png">
-              <b>nati.carolira</b>
+              <b><%=usuario.nome%></b>
             </div>
           </a>
         </nav>
@@ -62,9 +62,11 @@
           </div>
          
         </div>
-        <form class="form-comments" action="">
-          <input type="text" placeholder="Adicione um comentário...">
-          <button>Publicar</button>
+        <form class="form-comments" action="/comentario" method="POST">
+          <input name="usuario" type="text" class="id" value="<%=usuario.id%>">
+          <input name="post" type="text" class="id" value="<%=post.id%>">
+          <input name="comentario" type="text" placeholder="Adicione um comentário...">
+          <button type="submit">Publicar</button>
         </form>
       </div>
      <% } %> 
