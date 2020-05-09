@@ -86,6 +86,7 @@ a{
 
 .card {
     max-width: 464px;
+    width: 464px;
     display: flex;
     margin: 20px;
     flex-direction: column;
@@ -109,6 +110,7 @@ a{
 .card-img{
   width: 100%;
 }
+
 .card-img img{
   width: 100%;
 }
@@ -197,6 +199,7 @@ a{
 }
 .register.card{
     padding: 20px;
+    width: 90%;
 }
 
 @media(max-width:560px){

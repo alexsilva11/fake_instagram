@@ -30,6 +30,23 @@
       </div>
     </header>
     <main class="container content">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <img class="avatar" src="/img/avatar-example.png">
+            <b><%=usuario.nome %></b>
+          </div>
+            <img src="/img/icons/more-vertical.svg">
+        </div>
+        <form action="/publicar" method="POST" enctype="multipart/form-data">
+          <input name="files" type="file" style="padding: 15px;">
+          <div class="form-comments">
+          <input name="usuario" type="text" class="id" value="<%=usuario.id%>">
+          <input name="texto" type="text" placeholder="Escreva uma legenda...">
+          <button type="submit">Publicar</button>
+        </div>
+        </form>
+      </div>
       <% for (post of posts) { %>
       <div class="card">
         <div class="card-header">
@@ -40,7 +57,7 @@
             <img src="/img/icons/more-vertical.svg">
         </div>
         <div class="card-img">
-          <img src="/img/publication_example.jpg">
+          <img src="<%=post.img%>">
         </div>
         <div class="card-body">
           <div class="card-itens">

@@ -1,5 +1,7 @@
 const {Usuario, Post, Comentario} = require('../models')
 const sequelize = require('sequelize')
+const multer = require('multer')
+
 
 const HomeController = {
     curtir: (req, res) => {
@@ -23,6 +25,19 @@ const HomeController = {
 
         })
 
+
+        res.redirect('/home')
+    },
+    publicar: async (req, res) => {
+        let {texto, usuario} = req.body;
+        let {files} = req;
+
+        let novoPost = await Post.create({
+            texto,
+            img: '/img/publicacoes/' + files[0].originalname, 
+            usuarios_id: usuario,
+            n_likes: 0
+        })
 
         res.redirect('/home')
     }
